@@ -4,6 +4,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import os
+
+# Streamlit Cloud / Linux 환경의 나눔고딕 폰트 경로
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+    plt.rcParams["font.family"] = "NanumGothic"
+else:
+    # 로컬 Windows용
+    plt.rcParams["font.family"] = "Malgun Gothic"
+
+# 마이너스 기호 깨짐 방지
+plt.rcParams["axes.unicode_minus"] = False
 
 # 0. 페이지 기본 설정
 
