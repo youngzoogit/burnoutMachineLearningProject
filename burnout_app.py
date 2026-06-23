@@ -28,9 +28,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# 한글 폰트 설정
-plt.rcParams["font.family"] = "Malgun Gothic"
-plt.rcParams["axes.unicode_minus"] = False
+# ※ 한글 폰트는 상단에서 이미 NanumGothic / Malgun Gothic으로 설정 완료 (중복 제거)
 
 
 # 1. 모델, 인코더, 스케일러 로드
@@ -1105,7 +1103,7 @@ with main_tab2:
                 df_dash.loc[df_dash["stress_level"] == s, "burnout_risk_score"].dropna()
                 for s in stress_exist
             ]
-            bp = ax.boxplot(data_stress, labels=stress_exist, patch_artist=True)
+            bp = ax.boxplot(data_stress, tick_labels=stress_exist, patch_artist=True)
             s_colors = ["#81C784", "#AED581", "#FFF176", "#FFB74D", "#EF5350"]
             for patch, color in zip(bp["boxes"], s_colors[:len(stress_exist)]):
                 patch.set_facecolor(color)
