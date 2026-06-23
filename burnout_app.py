@@ -667,7 +667,7 @@ with main_tab2:
                 df_box.loc[df_box["burnout_group"] == g, col].dropna()
                 for g in ["Low", "Medium", "High"]
             ]
-            bp = ax.boxplot(data_by_group, labels=["Low", "Med", "High"], patch_artist=True)
+            bp = ax.boxplot(data_by_group, tick_labels=["Low", "Med", "High"], patch_artist=True)
             for patch, color in zip(bp["boxes"], colors_grp):
                 patch.set_facecolor(color)
                 patch.set_alpha(0.7)
